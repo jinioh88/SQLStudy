@@ -242,3 +242,20 @@
   - case 문은 where, order by 등에서도 사용 가능하다. 
   - else를 생략하면 else null 이 자동 입력 된다. 그러므로 else는 생략 안하는게 좋다. 
   - null 판단은 a = null 이렇게 말고 a is null 이렇게 사용한다. 
+
+  ## 4장 데이터 추가, 삭제, 갱신
+  ### INSERT
+    - insert into 테이블명 values(값1, 값2...);  행을 추가한다. 
+    - 클라이언트에서 테이터베이스 서버로 데이터를 전송한다. 
+    - 값을 저장할 열 지정하기
+      - insert into 테이블명 (열1, 열2...) values(값1, 값2...);
+    - NOT NULL 제약
+      - NOT NULL 제약이 있을때 NULL을 입력하면 에러 발생. 
+    - DEFAULT
+      - 명시적으로 값을 지정하지 않은 경우 초기값을 지정한다. 
+      - values(DEFAULT); values에 DEFAULT 키워드를 사용하여 지정한다. (명시적 지정 방법)
+      - 해당 지정할 열에 별도로 지정하지 않는 방법 (암묵적 지정 방법)
+
+  ### DELETE
+    - delete from 테이블명 where 조건식
+    - where절을 지정할 수 있는데 생략하면, 모든 행을 지워 버린다. 
