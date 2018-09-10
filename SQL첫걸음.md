@@ -265,3 +265,24 @@
   - set구에 지정한 갱신 내용은 처리 대상이 대는 모든 행에 적용된다. 
   - where구를 뺴면 조건이 일치하는 전체 행에 적용된다. 
 
+## 5장 집계와 서브쿼리
+### COUNT - 행구하기
+  - count(집합);
+  - 집계함수는 하나의 집합으로 부터 하나의 값을 반환한다. 
+  >   select count(*) from sample51 where name='A';
+  - count 인수로 열명을 지정하면 열에 한해서 행의 개수를 구한다. 
+    - count만 인수로 *를 쓸 수 있다.
+  - null은 집계에서 제외한다. 단 인수로 *게 오면 null 값도 다른것을 참조해 카운트 된다. 
+  - select distinct count(name) from sample51; 하면 안됨.  count가 먼저 계산 되서...
+    - 집계 함수의 인수로 distinct를 사용한 수식을 지정하자. 
+    - select count(distinct name) from sample51; 
+
+### COUNT 이외의 집계함수
+  - sum으로 잡합의 합을 구할 수 있다. 수치형만 집계 된다. null 값은 무시한다. 
+  >  mysql> select sum(quantity) from sample51;
+  - avg로 편하게 평균을 구할 수 있다. null 빼고 평균 구하는데, null 포함하려면 case를 사용한다. 
+    - select avg(case when quantity is null then 0 else quantity end) from sample51;
+  >  mysql> select avg(quantity) from sample51;
+
+### GROUP BY
+  - 
